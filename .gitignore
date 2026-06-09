@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editor / tooling
+.vscode/
+*.swp
+*.swo
+node_modules/
+
+# Claude Design artifact
+.thumbnail

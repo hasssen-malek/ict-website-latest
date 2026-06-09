@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Terms of Use | ICT</title>
+<meta name="description" content="The terms governing use of the ICT W.L.L website." />
+<link rel="canonical" href="https://www.ict.com.qa/Terms-of-Use.html" />
+<meta name="robots" content="index, follow" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="ICT" />
+<meta property="og:locale" content="en" />
+<meta property="og:title" content="Terms of Use | ICT" />
+<meta property="og:description" content="The terms governing use of the ICT W.L.L website." />
+<meta property="og:url" content="https://www.ict.com.qa/Terms-of-Use.html" />
+<meta property="og:image" content="https://www.ict.com.qa/assets/hero-bg.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Terms of Use | ICT" />
+<meta name="twitter:description" content="The terms governing use of the ICT W.L.L website." />
+<meta name="twitter:image" content="https://www.ict.com.qa/assets/hero-bg.png" />
+<link rel="stylesheet" href="ds/colors_and_type.css" />
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/service.css" />
+<link rel="stylesheet" href="css/pages.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="components/enhance.js"></script>
+<script>
+window.LEGAL_DATA = {"title":"Terms of Use","updated":"June 2026","intro":["These terms govern your use of the ICT W.L.L website. ICT is an enterprise technology company based in Doha, Qatar. By accessing or using this website, you agree to these terms.","This website provides general information about ICT and its services. It does not create a client relationship or a binding proposal."],"sections":[{"h":"Use of the website","body":["You may use this website for lawful purposes and to learn about ICT's services. You agree not to misuse the website, attempt to disrupt it, or access it in a way that could harm ICT or others."]},{"h":"Website content","body":["The content on this website is provided for general information only. While we aim to keep it accurate and current, we make no warranty that it is complete, error-free, or up to date at all times."]},{"h":"No professional advice","body":["Information on this website does not constitute professional, technical, legal, or commercial advice, and should not be relied upon as such. Any engagement with ICT is governed by a separate written agreement. Nothing on this website forms a binding proposal or contract."]},{"h":"Intellectual property","body":["The ICT name, logo, content, design, and materials on this website are owned by ICT W.L.L or its licensors and are protected by applicable intellectual-property laws. You may not copy, reproduce, or reuse them without our prior written permission."]},{"h":"Third-party links","body":["This website may link to third-party sites, including those of our technology partners. We are not responsible for the content, accuracy, or practices of those sites, and a link does not imply endorsement."]},{"h":"Availability and security","body":["We work to keep the website available and secure, but we do not guarantee uninterrupted access. We may suspend, withdraw, or change the website without notice for operational, maintenance, or security reasons."]},{"h":"Limitation of liability","body":["To the fullest extent permitted by law, ICT is not liable for any loss or damage arising from your use of, or inability to use, this website or reliance on its content. Nothing in these terms excludes liability that cannot be excluded under applicable law."]},{"h":"Governing law","body":["These terms are governed by the laws of the State of Qatar, and any disputes relating to this website are subject to the jurisdiction of the competent courts of Qatar."]},{"h":"Contact information","body":["For questions about this policy, contact ICT W.L.L at <a href='mailto:info@ict.com.qa'>info@ict.com.qa</a> or by post at Lusail Boulevard, West Bay, Doha, Qatar."]}]};
+</script>
+<script type="text/babel" src="components/Nav.jsx"></script>
+<script type="text/babel" src="components/Footer.jsx"></script>
+<script type="text/babel" src="components/LegalPage.jsx"></script>
+<script type="text/babel">
+  const { useEffect } = React;
+  function useScrollReveal() {
+    useEffect(() => {
+      const els = document.querySelectorAll(".reveal");
+      if (!("IntersectionObserver" in window)) { els.forEach((el) => el.classList.add("is-in")); return; }
+      const io = new IntersectionObserver((entries) => {
+        for (const e of entries) { if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); } }
+      }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
+      els.forEach((el) => io.observe(el));
+      return () => io.disconnect();
+    }, []);
+  }
+  function App() { useScrollReveal(); return (<><Nav /><main id="main-content" tabIndex="-1"><LegalPage data={window.LEGAL_DATA} /></main><Footer /></>); }
+  ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+<script src="components/cookie-consent.js"></script>
+</body>
+</html>

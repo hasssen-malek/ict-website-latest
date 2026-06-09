@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Public Sector Hybrid Cloud Case Study | ICT Qatar</title>
+<meta name="description" content="How ICT modernised a public sector data centre with hybrid cloud, migrated without disruption and built for security, governance, and continuity." />
+<link rel="canonical" href="https://www.ict.com.qa/Public-Sector.html" />
+<meta name="robots" content="index, follow" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="ICT" />
+<meta property="og:locale" content="en" />
+<meta property="og:title" content="Public Sector Hybrid Cloud Case Study | ICT Qatar" />
+<meta property="og:description" content="How ICT modernised a public sector data centre with hybrid cloud, migrated without disruption and built for security, governance, and continuity." />
+<meta property="og:url" content="https://www.ict.com.qa/Public-Sector.html" />
+<meta property="og:image" content="https://www.ict.com.qa/assets/hero-bg.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Public Sector Hybrid Cloud Case Study | ICT Qatar" />
+<meta name="twitter:description" content="How ICT modernised a public sector data centre with hybrid cloud, migrated without disruption and built for security, governance, and continuity." />
+<meta name="twitter:image" content="https://www.ict.com.qa/assets/hero-bg.png" />
+<link rel="stylesheet" href="ds/colors_and_type.css" />
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/home.css" />
+<link rel="stylesheet" href="css/service.css" />
+<link rel="stylesheet" href="css/pages.css" />
+<link rel="stylesheet" href="css/motion.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="components/enhance.js"></script>
+<script>window.STORY_DATA = {"heroImage":"assets/stories/public.jpg","industry":"Public Sector","headline":"Modernising the data centre with hybrid cloud","challengeSummary":"The organisation needed to modernise critical infrastructure and adopt cloud capabilities while maintaining strict security, governance, and operational-continuity requirements.","tags":["Azure VMware Solution","Hybrid Cloud","Infrastructure Transformation","Governance","Business Continuity"],"challengeStmt":"Modernise critical infrastructure, without disruption.","challenge":["The organisation operated a large on-premises infrastructure environment supporting critical workloads.","While cloud adoption offered significant benefits, concerns around governance, security, operational continuity, and application dependencies created barriers to migration.","The organisation required a solution that would enable cloud adoption without disrupting critical operations."],"solutionStmt":"A hybrid landing zone built on Azure VMware Solution.","solution":["ICT designed a hybrid cloud architecture leveraging Azure VMware Solution, extending the existing VMware environment into Azure while maintaining operational consistency and governance.","Secure connectivity, familiar operational tooling, and a phased migration strategy reduced risk and accelerated adoption.","The solution preserved existing investments while establishing a foundation for future cloud transformation."],"tech":["Azure VMware Solution","Microsoft Azure","Hybrid Cloud","Network Transformation","Disaster Recovery","Governance Frameworks","Infrastructure Modernisation"],"outcomes":[{"icon":"shield","h":"Reduced Transformation Risk","p":"Adopt cloud without disrupting operations."},{"icon":"layers","h":"Improved Operational Flexibility","p":"Extend infrastructure into Azure."},{"icon":"improve","h":"Stronger Business Continuity","p":"Improve resilience and recovery capabilities."},{"icon":"compass","h":"Enhanced Governance","p":"Maintain visibility and control."},{"icon":"bolt","h":"Future-Ready Platform","p":"Create a foundation for future innovation."}],"metricsRequired":["Number of workloads migrated","Availability metrics","Recovery improvements","Cost optimisation metrics"],"metricsExamples":["100% of target workloads migrated.","Zero unplanned downtime through migration.","Improved recovery time objectives across critical systems."],"takeaways":["Cloud adoption does not require abandoning existing investments.","Hybrid cloud can reduce risk while accelerating transformation.","Operational continuity remains critical during modernisation programmes."],"relatedService":{"h":"Cloud & Infrastructure Transformation","href":"Cloud-Infrastructure-Transformation.html","p":"Hybrid and multi-cloud platforms, data-centre modernisation, and migration."},"nextStory":{"h":"Intelligent investment research assistant","p":"Financial Services, fragmented data turned into governed decision intelligence.","href":"Financial-Services.html"},"cta":"Let's discuss your cloud transformation strategy."};</script>
+<script type="text/babel" src="components/Nav.jsx"></script>
+<script type="text/babel" src="components/Footer.jsx"></script>
+<script type="text/babel" src="components/PageKit.jsx"></script>
+<script type="text/babel" src="components/StoryPage.jsx"></script>
+<script type="text/babel">
+  const { useEffect } = React;
+  function useScrollReveal() {
+    useEffect(() => {
+      const els = document.querySelectorAll(".reveal");
+      if (!("IntersectionObserver" in window)) { els.forEach((el) => el.classList.add("is-in")); return; }
+      const io = new IntersectionObserver((entries) => { for (const e of entries) { if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); } } }, { threshold: 0.08, rootMargin: "0px 0px -40px 0px" });
+      els.forEach((el) => io.observe(el));
+      return () => io.disconnect();
+    }, []);
+  }
+  function App() { useScrollReveal(); return (<><Nav /><main id="main-content" tabIndex="-1"><StoryPage data={window.STORY_DATA} /></main><Footer /></>); }
+  ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+<script src="components/cookie-consent.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Financial Services Case Study | ICT Qatar</title>
+<meta name="description" content="How ICT delivered a governed, cited investment research assistant for a financial services organisation, unifying fragmented data and accelerating decisions." />
+<link rel="canonical" href="https://www.ict.com.qa/Financial-Services.html" />
+<meta name="robots" content="index, follow" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="ICT" />
+<meta property="og:locale" content="en" />
+<meta property="og:title" content="Financial Services Case Study | ICT Qatar" />
+<meta property="og:description" content="How ICT delivered a governed, cited investment research assistant for a financial services organisation, unifying fragmented data and accelerating decisions." />
+<meta property="og:url" content="https://www.ict.com.qa/Financial-Services.html" />
+<meta property="og:image" content="https://www.ict.com.qa/assets/hero-bg.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Financial Services Case Study | ICT Qatar" />
+<meta name="twitter:description" content="How ICT delivered a governed, cited investment research assistant for a financial services organisation, unifying fragmented data and accelerating decisions." />
+<meta name="twitter:image" content="https://www.ict.com.qa/assets/hero-bg.png" />
+<link rel="stylesheet" href="ds/colors_and_type.css" />
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/home.css" />
+<link rel="stylesheet" href="css/service.css" />
+<link rel="stylesheet" href="css/pages.css" />
+<link rel="stylesheet" href="css/motion.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="components/enhance.js"></script>
+<script>window.STORY_DATA = {"heroImage":"assets/stories/financial.jpg","industry":"Financial Services","headline":"Intelligent investment research assistant","challengeSummary":"Fragmented investment data, disconnected research workflows, and rising demand for faster, more reliable investment decisions created operational inefficiencies across research and advisory teams.","tags":["Azure OpenAI","Enterprise Search","Knowledge Management","AI Governance","Data Platforms"],"challengeStmt":"Investment decisions slowed by scattered information.","challenge":["Investment professionals relied on information distributed across research reports, market-intelligence sources, internal knowledge repositories, and regulatory documentation.","Finding relevant information often required significant manual effort, slowing decision-making and reducing productivity.","The organisation needed a secure solution that could provide faster access to trusted information while maintaining governance, traceability, and compliance."],"solutionStmt":"Governed, source-traceable research intelligence.","solution":["ICT designed and implemented an AI-powered investment research platform that unified structured and unstructured information sources into a single governed environment.","The platform used enterprise AI to help users discover information faster while maintaining transparency and auditability. Every recommendation remained linked to its original source.","The solution was designed with Arabic-language support and enterprise-grade governance from day one."],"tech":["Azure OpenAI","Enterprise Search","Knowledge Management","Data Governance","Document Intelligence","Role-Based Access Control","Source Traceability Framework"],"outcomes":[{"icon":"bolt","h":"Faster Research Workflows","p":"Reduce time spent locating information."},{"icon":"compass","h":"Improved Knowledge Accessibility","p":"Connect users with trusted information sources."},{"icon":"shield","h":"Enhanced Governance","p":"Maintain transparency and traceability."},{"icon":"target","h":"Better Decision Support","p":"Provide faster access to investment insights."},{"icon":"check","h":"Enterprise-Ready AI Adoption","p":"Operationalise AI within a regulated environment."}],"metricsRequired":["User adoption metrics","Productivity improvements","Research efficiency improvements","Platform utilisation figures"],"metricsExamples":["50% reduction in research preparation time.","70% faster information discovery.","Adoption across all research and advisory teams."],"takeaways":["AI delivers value when paired with governance.","Enterprise search can unlock significant value from existing knowledge assets.","Source traceability remains essential for regulated industries."],"relatedService":{"h":"AI & Intelligent Automation","href":"AI-Intelligent-Automation.html","p":"Enterprise AI infrastructure, data readiness, and governed automation."},"nextStory":{"h":"AI-powered unified enterprise search","p":"Education & Research, knowledge unlocked through governed semantic discovery.","href":"Education-Research.html"},"cta":"Discuss a similar AI opportunity."};</script>
+<script type="text/babel" src="components/Nav.jsx"></script>
+<script type="text/babel" src="components/Footer.jsx"></script>
+<script type="text/babel" src="components/PageKit.jsx"></script>
+<script type="text/babel" src="components/StoryPage.jsx"></script>
+<script type="text/babel">
+  const { useEffect } = React;
+  function useScrollReveal() {
+    useEffect(() => {
+      const els = document.querySelectorAll(".reveal");
+      if (!("IntersectionObserver" in window)) { els.forEach((el) => el.classList.add("is-in")); return; }
+      const io = new IntersectionObserver((entries) => { for (const e of entries) { if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); } } }, { threshold: 0.08, rootMargin: "0px 0px -40px 0px" });
+      els.forEach((el) => io.observe(el));
+      return () => io.disconnect();
+    }, []);
+  }
+  function App() { useScrollReveal(); return (<><Nav /><main id="main-content" tabIndex="-1"><StoryPage data={window.STORY_DATA} /></main><Footer /></>); }
+  ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+<script src="components/cookie-consent.js"></script>
+</body>
+</html>

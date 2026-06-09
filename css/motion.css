@@ -1,0 +1,351 @@
+/* =========================================================================
+   ICT — Motion System
+   Premium, restrained, enterprise. transform/opacity only. 60fps.
+   Every continuous loop is gated behind prefers-reduced-motion.
+   Reveals degrade to fully-visible when motion is reduced or JS is absent.
+   ========================================================================= */
+
+:root {
+  --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);   /* entrances */
+  --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);   /* continuous */
+  --dur-micro:   200ms;   /* micro-interactions */
+  --dur-comp:    420ms;   /* component transitions */
+}
+
+/* =========================================================================
+   HERO TEXT — premium staggered load-in
+   Each line rises + fades in sequence on page load; the headline adds a soft
+   blur-settle. Base state is the visible end-state, so reduced-motion,
+   motion-off, and no-JS all render the text normally (animation just removed).
+   ========================================================================= */
+@media (prefers-reduced-motion: no-preference) {
+  .hero__head--load > * {
+    animation: heroLineIn .85s var(--ease-out) both;
+  }
+  .hero__head--load .hero__kicker { animation-delay: .12s; }
+  .hero__head--load .hero__title {
+    animation: heroTitleIn 1s var(--ease-out) both;
+    animation-delay: .26s;
+  }
+  .hero__head--load .hero__sub { animation-delay: .50s; }
+  .hero__head--load .hero__cta { animation-delay: .66s; }
+
+  /* the accent word in the headline glides up just behind the line */
+  .hero__head--load .hero__title em {
+    display: inline-block;
+    animation: heroAccentIn 1s var(--ease-out) both;
+    animation-delay: .42s;
+  }
+
+  .hero__meta--load .hero__meta-item {
+    animation: heroLineIn .8s var(--ease-out) both;
+  }
+  .hero__meta--load .hero__meta-item:nth-child(1) { animation-delay: .82s; }
+  .hero__meta--load .hero__meta-item:nth-child(2) { animation-delay: .92s; }
+  .hero__meta--load .hero__meta-item:nth-child(3) { animation-delay: 1.02s; }
+}
+@keyframes heroLineIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes heroTitleIn {
+  from { opacity: 0; transform: translateY(20px); filter: blur(7px); }
+  60%  { filter: blur(0); }
+  to   { opacity: 1; transform: none; filter: blur(0); }
+}
+@keyframes heroAccentIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* =========================================================================
+   SECONDARY-PAGE HEROES — same premium staggered load-in
+   Shared by every page hero (.phero / .chero / .lhero / story / service).
+   Crumbs -> kicker -> title (blur-settle) -> sub/meta -> tags, in sequence.
+   Base state is visible, so reduced-motion / motion-off / no-JS just show it.
+   ========================================================================= */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-load .lhero__crumbs {
+    animation: heroLineIn .8s var(--ease-out) both;
+    animation-delay: .08s;
+  }
+  .hero-load .kicker {
+    animation: heroLineIn .8s var(--ease-out) both;
+    animation-delay: .18s;
+  }
+  .hero-load .phero__title,
+  .hero-load .chero__title,
+  .hero-load .lhero__title {
+    animation: heroTitleIn 1s var(--ease-out) both;
+    animation-delay: .30s;
+  }
+  .hero-load .phero__sub,
+  .hero-load .chero__sub,
+  .hero-load .lhero__meta {
+    animation: heroLineIn .85s var(--ease-out) both;
+    animation-delay: .50s;
+  }
+  .hero-load .storyhero__tags {
+    animation: heroLineIn .85s var(--ease-out) both;
+    animation-delay: .64s;
+  }
+}
+
+/* =========================================================================
+   SCROLL REVEAL — orchestrated fade + rise
+   ========================================================================= */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity .66s var(--ease-out),
+      transform .66s var(--ease-out);
+    will-change: opacity, transform;
+  }
+  .reveal.is-in { opacity: 1; transform: none; }
+  .reveal.is-in { will-change: auto; }
+
+  /* stagger steps (delays already wired via .d1–.d5 in base.css) */
+
+  /* card grids self-stagger by DOM order when a row enters together */
+  .svc__panel.reveal:nth-of-type(1) { transition-delay: .02s; }
+  .svc__panel.reveal:nth-of-type(2) { transition-delay: .10s; }
+  .svc__panel.reveal:nth-of-type(3) { transition-delay: .18s; }
+  .svc__panel.reveal:nth-of-type(4) { transition-delay: .26s; }
+
+  .sstory.reveal:nth-child(1) { transition-delay: .02s; }
+  .sstory.reveal:nth-child(2) { transition-delay: .10s; }
+  .sstory.reveal:nth-child(3) { transition-delay: .18s; }
+}
+
+/* =========================================================================
+   APPROACH — sequenced reveal (number → title → text) + subtle hover
+   The step container is observed; its children animate in sequence.
+   ========================================================================= */
+@media (prefers-reduced-motion: no-preference) {
+  .appr__step.reveal { opacity: 1; transform: none; }
+  .appr__step .appr__no,
+  .appr__step .appr__name,
+  .appr__step .appr__desc {
+    opacity: 0; transform: translateY(12px);
+    transition: opacity .55s var(--ease-out), transform .55s var(--ease-out);
+  }
+  .appr__step::before { transform: scaleX(0); transform-origin: left; transition: transform .5s var(--ease-out); }
+  .appr__step.is-in::before { transform: scaleX(1); }
+  .appr__step.is-in .appr__no   { opacity: 1; transform: none; transition-delay: .08s; }
+  .appr__step.is-in .appr__name { opacity: 1; transform: none; transition-delay: .20s; }
+  .appr__step.is-in .appr__desc { opacity: 1; transform: none; transition-delay: .32s; }
+}
+.appr__step .appr__no,
+.appr__step .appr__name,
+.appr__step .appr__desc { position: relative; z-index: 1; }
+
+/* =========================================================================
+   LIVING INFRASTRUCTURE — schematic ambient motion
+   ========================================================================= */
+@media (prefers-reduced-motion: no-preference) {
+  /* connection lines breathe — barely perceptible */
+  .hero__schema .s-line-lit,
+  .shero__viz   .s-line-lit,
+  .svc__diagram .s-line-lit,
+  .story__viz   .s-line-lit {
+    animation: lineBreath 7s var(--ease-in-out) infinite;
+  }
+
+  /* colored nodes pulse softly (opacity only — no glow) */
+  .hero__schema .s-node-live,
+  .svc__diagram .s-mark,
+  .story__viz   .s-mark,
+  .shero__viz   .s-mark {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: nodePulse 4.2s var(--ease-in-out) infinite;
+  }
+
+  /* data paths slowly illuminate — a short lit segment travels the route.
+     Uses pathLength="100" so all routes travel at a consistent cadence.
+     Higher specificity (.draw .s-flow) to beat base.css's .draw polyline. */
+  .draw .s-flow {
+    fill: none;
+    stroke: var(--flow, #0098FF);
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    opacity: 0.85;
+    stroke-dasharray: 7 100;
+    stroke-dashoffset: 0;
+    animation: flowMove 4.6s linear infinite;
+  }
+}
+
+@keyframes lineBreath {
+  0%, 100% { opacity: 0.38; }
+  50%      { opacity: 0.62; }
+}
+@keyframes nodePulse {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50%      { opacity: 1;   transform: scale(1.14); }
+}
+@keyframes flowMove {
+  from { stroke-dashoffset: 107; }
+  to   { stroke-dashoffset: 0; }
+}
+
+/* draw-in: the schematic strokes draw themselves once on reveal (base.css
+   handles the .draw stroke-dashoffset). s-flow loops instead — kept solid above. */
+
+/* =========================================================================
+   AMBIENT BACKGROUND — almost-subconscious drift on the hero
+   A single very low-opacity soft light, slowly traversing. Not a gradient
+   fill of the section; a faint moving accent behind the schematic.
+   ========================================================================= */
+.hero { position: relative; }
+.hero__ambient {
+  position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0;
+}
+.hero__ambient::before {
+  content: "";
+  position: absolute;
+  width: 60vw; height: 60vw; max-width: 820px; max-height: 820px;
+  top: -10%; right: -8%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(55,15,221,0.10) 0%, rgba(55,15,221,0) 62%);
+  filter: blur(8px);
+}
+/* second, complementary glow — electric blue, lower-left — adds depth to the
+   hero field without competing with the headline or the photographic art */
+.hero__ambient::after {
+  content: "";
+  position: absolute;
+  width: 46vw; height: 46vw; max-width: 620px; max-height: 620px;
+  bottom: -22%; left: -10%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,152,255,0.08) 0%, rgba(0,152,255,0) 64%);
+  filter: blur(10px);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero__ambient::before { animation: ambientDrift 22s var(--ease-in-out) infinite; }
+  .hero__ambient::after { animation: ambientDrift 28s var(--ease-in-out) infinite reverse; }
+}
+.hero > .wrap { position: relative; z-index: 1; }
+@keyframes ambientDrift {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.9; }
+  50%      { transform: translate3d(-4%, 4%, 0) scale(1.08); opacity: 1; }
+}
+
+/* =========================================================================
+   HERO PARTICLE WAVE — canvas field, right-weighted, dissolving into bg
+   ========================================================================= */
+.hero__particles {
+  position: absolute; inset: 0; overflow: hidden;
+  pointer-events: none; z-index: 0;
+}
+.hero__particles canvas {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; display: block;
+  /* keep the left clean for the headline; focal weight sits right (golden) */
+  -webkit-mask-image: radial-gradient(120% 130% at 72% 50%, #000 38%, rgba(0,0,0,0.5) 66%, transparent 88%);
+  mask-image: radial-gradient(120% 130% at 72% 50%, #000 38%, rgba(0,0,0,0.5) 66%, transparent 88%);
+}
+
+/* =========================================================================
+   HERO ARTWORK — ICT particle background image + readability scrim
+   ========================================================================= */
+.hero__art {
+  position: absolute; inset: 0; overflow: hidden;
+  pointer-events: none; z-index: 0;
+  opacity: 1;
+}
+.hero__art.is-fading { animation: heroArtIn 1.5s var(--ease-out, cubic-bezier(0.22,1,0.36,1)); }
+@keyframes heroArtIn { from { opacity: 0; } to { opacity: 1; } }
+.hero__field { position: absolute; inset: 0; width: 100%; height: 100%; display: block; z-index: 2; }
+.hero__bgimg {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: 70% 42%;
+  opacity: 0.82;
+  z-index: 0;
+}
+/* readability scrim — gentle, focused on the text zone; reveals the art on the right */
+.hero__scrim {
+  position: absolute; inset: 0; z-index: 1;
+  background:
+    linear-gradient(90deg, rgba(6,5,18,0.96) 0%, rgba(6,5,18,0.84) 30%, rgba(6,5,18,0.54) 52%, rgba(6,5,18,0.24) 74%, rgba(6,5,18,0.12) 100%),
+    linear-gradient(0deg, rgba(6,5,18,0.5) 0%, transparent 28%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero__art { animation: none; }
+}
+@media (max-width: 980px) {
+  .hero__bgimg { object-position: 72% 38%; opacity: 0.76; }
+  .hero__scrim {
+    background:
+      linear-gradient(90deg, rgba(6,5,18,0.96) 0%, rgba(6,5,18,0.84) 34%, rgba(6,5,18,0.56) 70%, rgba(6,5,18,0.4) 100%),
+      linear-gradient(0deg, rgba(6,5,18,0.62) 0%, transparent 36%);
+  }
+}
+@media (max-width: 600px) {
+  .hero__bgimg { opacity: 0.66; }
+}
+
+/* =========================================================================
+   BUTTONS — refined micro-interactions
+   ========================================================================= */
+.btn { transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out), box-shadow var(--dur-comp) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
+.btn--primary { box-shadow: 0 1px 2px rgba(6,5,18,0.18); }
+.btn--primary:hover { box-shadow: 0 10px 26px -8px rgba(6,5,18,0.45); transform: translateY(-1px); }
+.btn--primary:active { box-shadow: 0 2px 8px -2px rgba(6,5,18,0.4); transform: translateY(0); }
+
+/* =========================================================================
+   NAV — compact-on-scroll
+   ========================================================================= */
+.nav__row { transition: height var(--dur-comp) var(--ease-in-out); }
+.nav__logo img { transition: height var(--dur-comp) var(--ease-in-out); }
+.nav.is-scrolled .nav__row { height: 62px; }
+.nav.is-scrolled .nav__logo img { height: 26px; }
+
+/* nav link — opacity transition is already smooth; keep it that way */
+
+/* =========================================================================
+   ILLUSTRATION SYSTEM — ambient, hypnotic, continuous (no obvious loops)
+   ========================================================================= */
+.ill { width: 100%; height: auto; display: block; overflow: visible; color: var(--on-dark); }
+.ill .il-rot, .ill .il-pulse, .ill .il-glow, .ill .il-float-a, .ill .il-float-b, .ill .il-float-c {
+  transform-box: fill-box;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ill .il-rot   { animation: ilRot 70s linear infinite; }
+  .ill .il-pulse { animation: ilPulse 4.6s var(--ease-in-out) infinite; }
+  .ill .il-glow  { animation: ilGlow 5.5s var(--ease-in-out) infinite; }
+  .ill .il-fade  { animation: ilFade 6s var(--ease-in-out) infinite; }
+  .ill .il-float-a { animation: ilFloat 9s var(--ease-in-out) infinite; }
+  .ill .il-float-b { animation: ilFloat 11s var(--ease-in-out) infinite; animation-delay: -3s; }
+  .ill .il-float-c { animation: ilFloat 13s var(--ease-in-out) infinite; animation-delay: -6s; }
+  .ill .il-wave  { stroke-dasharray: 22 100; animation: ilWave 3.6s linear infinite; }
+}
+@keyframes ilRot   { to { transform: rotate(360deg); } }
+@keyframes ilPulse { 0%, 100% { opacity: 0.72; transform: scale(1); } 50% { opacity: 1; transform: scale(1.12); } }
+@keyframes ilGlow  { 0%, 100% { opacity: 0.5; } 50% { opacity: 0.95; } }
+@keyframes ilFade  { 0%, 100% { opacity: 0.34; } 50% { opacity: 0.6; } }
+@keyframes ilFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+@keyframes ilWave  { from { stroke-dashoffset: 122; } to { stroke-dashoffset: 0; } }
+
+/* tweak: disable ambient/continuous motion (keyframe animations) on demand.
+   Reveals use transitions, so content still animates in. */
+html.motion-off *, html.motion-off *::before, html.motion-off *::after { animation: none !important; }
+
+/* =========================================================================
+   REDUCED MOTION — everything resolves to the visible end-state
+   ========================================================================= */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .appr__step .appr__no,
+  .appr__step .appr__name,
+  .appr__step .appr__desc { opacity: 1 !important; transform: none !important; }
+  .appr__step::before { transform: scaleX(1) !important; }
+  .s-flow { display: none; }
+  .hero__ambient { display: none; }
+  .rb-shimmer { display: none; }
+  .ill .il-wave { stroke-dasharray: none; }
+}

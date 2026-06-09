@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Digital Transformation Partner in Qatar | ICT</title>
+<meta name="description" content="ICT is a Doha-based digital transformation partner, helping organisations across Qatar transform with consulting, cloud, cybersecurity, data, AI, and managed services." />
+<link rel="canonical" href="https://www.ict.com.qa/" />
+<meta name="robots" content="index, follow" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="ICT" />
+<meta property="og:locale" content="en" />
+<meta property="og:title" content="Digital Transformation Partner in Qatar | ICT" />
+<meta property="og:description" content="ICT is a Doha-based digital transformation partner, helping organisations across Qatar transform with consulting, cloud, cybersecurity, data, AI, and managed services." />
+<meta property="og:url" content="https://www.ict.com.qa/" />
+<meta property="og:image" content="https://www.ict.com.qa/assets/hero-bg.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Digital Transformation Partner in Qatar | ICT" />
+<meta name="twitter:description" content="ICT is a Doha-based digital transformation partner, helping organisations across Qatar transform with consulting, cloud, cybersecurity, data, AI, and managed services." />
+<meta name="twitter:image" content="https://www.ict.com.qa/assets/hero-bg.png" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"ICT W.L.L","alternateName":"ICT","url":"https://www.ict.com.qa/","logo":"https://www.ict.com.qa/assets/ict-logo.png","description":"Doha-based digital transformation partner delivering consulting, cloud, cybersecurity, data, AI, and managed services across Qatar.","address":{"@type":"PostalAddress","addressLocality":"Doha","addressCountry":"QA"},"contactPoint":{"@type":"ContactPoint","email":"info@ict.com.qa","telephone":"+974 4440 5000","contactType":"sales","areaServed":"QA"},"areaServed":{"@type":"Country","name":"Qatar"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"ICT","url":"https://www.ict.com.qa/"}</script>
+
+<link rel="stylesheet" href="ds/colors_and_type.css" />
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/home.css" />
+<link rel="stylesheet" href="css/motion.css" />
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="components/enhance.js"></script>
+
+<script src="components/field.js"></script>
+<script type="text/babel" src="components/Nav.jsx"></script>
+<script type="text/babel" src="components/Hero.jsx"></script>
+<script type="text/babel" src="components/Challenge.jsx"></script>
+<script type="text/babel" src="components/Approach.jsx"></script>
+<script type="text/babel" src="components/Services.jsx"></script>
+<script type="text/babel" src="components/PartnerLogo.jsx"></script>
+<script type="text/babel" src="components/Partners.jsx"></script>
+<script type="text/babel" src="components/WhyICT.jsx"></script>
+<script type="text/babel" src="components/SuccessStories.jsx"></script>
+<script type="text/babel" src="components/CTABanner.jsx"></script>
+<script type="text/babel" src="components/Footer.jsx"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+
+<script type="text/babel">
+  const { useEffect } = React;
+
+  function useScrollReveal() {
+    useEffect(() => {
+      const els = document.querySelectorAll(".reveal");
+      if (!("IntersectionObserver" in window)) {
+        els.forEach((el) => el.classList.add("is-in"));
+        return;
+      }
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); }
+          }
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -50px 0px" }
+      );
+      els.forEach((el) => io.observe(el));
+      return () => io.disconnect();
+    }, []);
+  }
+
+  const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "accent": "#370FDD",
+    "displayFont": "Space Grotesk",
+    "ambientMotion": true
+  }/*EDITMODE-END*/;
+
+  function App() {
+    const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+    useScrollReveal();
+
+    useEffect(() => {
+      const root = document.documentElement;
+      root.style.setProperty("--ict-core-indigo", t.accent);
+      root.style.setProperty("--ed-display", `"${t.displayFont}", system-ui, sans-serif`);
+      root.classList.toggle("motion-off", !t.ambientMotion);
+    }, [t.accent, t.displayFont, t.ambientMotion]);
+
+    return (
+      <>
+        <Nav />
+        <main id="main-content" tabIndex="-1">
+          <Hero />
+          <Challenge />
+          <Approach />
+          <Services />
+          <Partners />
+          <WhyICT />
+          <SuccessStories />
+          <CTABanner />
+        </main>
+        <Footer />
+        <TweaksPanel>
+          <TweakSection label="Brand" />
+          <TweakColor label="Accent" value={t.accent}
+            options={["#370FDD", "#0098FF", "#612DF5", "#19C6D6"]}
+            onChange={(v) => setTweak("accent", v)} />
+          <TweakRadio label="Headline font" value={t.displayFont}
+            options={["Space Grotesk", "Inter"]}
+            onChange={(v) => setTweak("displayFont", v)} />
+          <TweakSection label="Motion" />
+          <TweakToggle label="Ambient motion" value={t.ambientMotion}
+            onChange={(v) => setTweak("ambientMotion", v)} />
+        </TweaksPanel>
+      </>
+    );
+  }
+
+  ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+<script src="components/cookie-consent.js"></script>
+</body>
+</html>

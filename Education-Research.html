@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Education & Research Case Study | ICT Qatar</title>
+<meta name="description" content="How ICT delivered unified, access-aware enterprise search for an education and research organisation, connecting knowledge across the institution." />
+<link rel="canonical" href="https://www.ict.com.qa/Education-Research.html" />
+<meta name="robots" content="index, follow" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="ICT" />
+<meta property="og:locale" content="en" />
+<meta property="og:title" content="Education &amp; Research Case Study | ICT Qatar" />
+<meta property="og:description" content="How ICT delivered unified, access-aware enterprise search for an education and research organisation, connecting knowledge across the institution." />
+<meta property="og:url" content="https://www.ict.com.qa/Education-Research.html" />
+<meta property="og:image" content="https://www.ict.com.qa/assets/hero-bg.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Education &amp; Research Case Study | ICT Qatar" />
+<meta name="twitter:description" content="How ICT delivered unified, access-aware enterprise search for an education and research organisation, connecting knowledge across the institution." />
+<meta name="twitter:image" content="https://www.ict.com.qa/assets/hero-bg.png" />
+<link rel="stylesheet" href="ds/colors_and_type.css" />
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/home.css" />
+<link rel="stylesheet" href="css/service.css" />
+<link rel="stylesheet" href="css/pages.css" />
+<link rel="stylesheet" href="css/motion.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="components/enhance.js"></script>
+<script>window.STORY_DATA = {"heroImage":"assets/stories/research.jpg","industry":"Education & Research","headline":"AI-powered unified enterprise search","challengeSummary":"Knowledge was distributed across disconnected repositories, making information difficult to discover, govern, and utilise effectively.","tags":["Enterprise Search","AI","Knowledge Discovery","Analytics","Access Governance"],"challengeStmt":"Millions of documents, no single way to search.","challenge":["The organisation managed millions of documents distributed across multiple platforms.","Researchers, students, and staff struggled to find relevant information efficiently. Existing search experiences were fragmented, limiting the value of institutional knowledge.","The organisation required a unified solution capable of respecting existing permissions while improving knowledge discovery."],"solutionStmt":"One governed, access-aware search experience.","solution":["ICT designed and implemented an enterprise search platform that indexes information across multiple repositories while preserving existing access controls.","The platform introduced semantic search, AI-powered discovery, and intelligent relevance ranking. Users search across systems through a single experience while governance and security are maintained.","The solution transformed fragmented knowledge into a strategic institutional asset."],"tech":["Enterprise Search","AI Search","Knowledge Graph","Document Indexing","Access Control","Semantic Search","Analytics"],"outcomes":[{"icon":"compass","h":"Improved Information Discovery","p":"Reduce time spent searching for information."},{"icon":"improve","h":"Enhanced Research Productivity","p":"Accelerate access to institutional knowledge."},{"icon":"shield","h":"Better Governance","p":"Maintain access controls across systems."},{"icon":"data","h":"Increased Knowledge Utilisation","p":"Unlock value from existing information assets."},{"icon":"target","h":"Improved User Experience","p":"Deliver a unified search experience."}],"metricsRequired":["Number of indexed documents","Search performance improvements","User adoption metrics","Knowledge utilisation improvements"],"metricsExamples":["12M+ documents indexed across repositories.","Sub-2-second median query times.","Adoption across research, faculty, and staff."],"takeaways":["Knowledge is only valuable when it is discoverable.","Enterprise search can become a strategic capability rather than a utility.","Governance and accessibility must evolve together."],"relatedService":{"h":"AI & Intelligent Automation","href":"AI-Intelligent-Automation.html","p":"Enterprise AI infrastructure, data readiness, and governed automation."},"nextStory":{"h":"Modernising the data centre with hybrid cloud","p":"Public Sector, on-premises infrastructure extended into a sovereign cloud landing zone.","href":"Public-Sector.html"},"cta":"Explore how AI can unlock your knowledge assets."};</script>
+<script type="text/babel" src="components/Nav.jsx"></script>
+<script type="text/babel" src="components/Footer.jsx"></script>
+<script type="text/babel" src="components/PageKit.jsx"></script>
+<script type="text/babel" src="components/StoryPage.jsx"></script>
+<script type="text/babel">
+  const { useEffect } = React;
+  function useScrollReveal() {
+    useEffect(() => {
+      const els = document.querySelectorAll(".reveal");
+      if (!("IntersectionObserver" in window)) { els.forEach((el) => el.classList.add("is-in")); return; }
+      const io = new IntersectionObserver((entries) => { for (const e of entries) { if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); } } }, { threshold: 0.08, rootMargin: "0px 0px -40px 0px" });
+      els.forEach((el) => io.observe(el));
+      return () => io.disconnect();
+    }, []);
+  }
+  function App() { useScrollReveal(); return (<><Nav /><main id="main-content" tabIndex="-1"><StoryPage data={window.STORY_DATA} /></main><Footer /></>); }
+  ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+<script src="components/cookie-consent.js"></script>
+</body>
+</html>

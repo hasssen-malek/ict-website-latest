@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cookie Policy | ICT</title>
+<meta name="description" content="How ICT W.L.L uses cookies and similar technologies on this website, and how you can manage your preferences." />
+<link rel="canonical" href="https://www.ict.com.qa/Cookie-Policy.html" />
+<meta name="robots" content="index, follow" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="ICT" />
+<meta property="og:locale" content="en" />
+<meta property="og:title" content="Cookie Policy | ICT" />
+<meta property="og:description" content="How ICT W.L.L uses cookies and similar technologies on this website, and how you can manage your preferences." />
+<meta property="og:url" content="https://www.ict.com.qa/Cookie-Policy.html" />
+<meta property="og:image" content="https://www.ict.com.qa/assets/hero-bg.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Cookie Policy | ICT" />
+<meta name="twitter:description" content="How ICT W.L.L uses cookies and similar technologies on this website, and how you can manage your preferences." />
+<meta name="twitter:image" content="https://www.ict.com.qa/assets/hero-bg.png" />
+<link rel="stylesheet" href="ds/colors_and_type.css" />
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/service.css" />
+<link rel="stylesheet" href="css/pages.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="components/enhance.js"></script>
+<script>
+window.LEGAL_DATA = {"title":"Cookie Policy","updated":"June 2026","intro":["This policy explains how ICT W.L.L uses cookies and similar technologies on this website. It should be read alongside our <a href='Privacy-Policy.html'>Privacy Policy</a>."],"sections":[{"h":"What cookies are","body":["Cookies are small text files placed on your device when you visit a website. They help the site function, remember preferences, and provide aggregate information about how the site is used."]},{"h":"How ICT uses cookies","body":["We use a limited number of cookies to keep this website working correctly and to understand, in aggregate, how visitors use it. We do not use cookies to build detailed individual profiles."]},{"h":"Essential cookies","body":["These cookies are necessary for the website to operate, such as maintaining security and core functionality. They cannot be switched off through our site."]},{"h":"Analytics cookies","body":["These help us understand which pages are visited and how the site performs, so we can improve it. The information is aggregated and does not identify you personally."]},{"h":"Functional cookies","body":["These remember choices you make, such as preferences, to provide a more consistent experience. They are optional and used only where helpful."]},{"h":"Third-party cookies","body":["Some cookies may be set by trusted third-party services we use, for example analytics providers. These providers operate under their own policies and the terms we agree with them."]},{"h":"Managing cookies","body":["You can control or delete cookies through your browser settings, including blocking cookies or removing those already stored. Disabling some cookies may affect how parts of the website function."]},{"h":"Updates to this policy","body":["We may update this policy from time to time to reflect changes to our website or to legal and regulatory requirements. The date above shows when it was last revised."]},{"h":"Contact information","body":["For questions about this policy, contact ICT W.L.L at <a href='mailto:info@ict.com.qa'>info@ict.com.qa</a> or by post at Lusail Boulevard, West Bay, Doha, Qatar."]}]};
+</script>
+<script type="text/babel" src="components/Nav.jsx"></script>
+<script type="text/babel" src="components/Footer.jsx"></script>
+<script type="text/babel" src="components/LegalPage.jsx"></script>
+<script type="text/babel">
+  const { useEffect } = React;
+  function useScrollReveal() {
+    useEffect(() => {
+      const els = document.querySelectorAll(".reveal");
+      if (!("IntersectionObserver" in window)) { els.forEach((el) => el.classList.add("is-in")); return; }
+      const io = new IntersectionObserver((entries) => {
+        for (const e of entries) { if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); } }
+      }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
+      els.forEach((el) => io.observe(el));
+      return () => io.disconnect();
+    }, []);
+  }
+  function App() { useScrollReveal(); return (<><Nav /><main id="main-content" tabIndex="-1"><LegalPage data={window.LEGAL_DATA} /></main><Footer /></>); }
+  ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+<script src="components/cookie-consent.js"></script>
+</body>
+</html>

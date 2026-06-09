@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Privacy Policy | ICT</title>
+<meta name="description" content="How ICT W.L.L handles personal information from website enquiries and consultation requests in Qatar." />
+<link rel="canonical" href="https://www.ict.com.qa/Privacy-Policy.html" />
+<meta name="robots" content="index, follow" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="ICT" />
+<meta property="og:locale" content="en" />
+<meta property="og:title" content="Privacy Policy | ICT" />
+<meta property="og:description" content="How ICT W.L.L handles personal information from website enquiries and consultation requests in Qatar." />
+<meta property="og:url" content="https://www.ict.com.qa/Privacy-Policy.html" />
+<meta property="og:image" content="https://www.ict.com.qa/assets/hero-bg.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Privacy Policy | ICT" />
+<meta name="twitter:description" content="How ICT W.L.L handles personal information from website enquiries and consultation requests in Qatar." />
+<meta name="twitter:image" content="https://www.ict.com.qa/assets/hero-bg.png" />
+<link rel="stylesheet" href="ds/colors_and_type.css" />
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/service.css" />
+<link rel="stylesheet" href="css/pages.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="components/enhance.js"></script>
+<script>
+window.LEGAL_DATA = {"title":"Privacy Policy","updated":"June 2026","intro":["ICT W.L.L (“ICT”, “we”, “us”) is an enterprise technology company based in Doha, Qatar. This policy explains how we handle personal information collected through this website and in the course of business communications, enquiries, and consultation requests.","We keep this policy practical and limited to how we actually use information. By using this website or contacting us, you agree to the practices described here."],"sections":[{"h":"Information we collect","body":["We collect information you provide directly when you make an enquiry, request a consultation, or otherwise communicate with us.",{"ul":["Contact details such as your name, work email, phone number, company, and job title.","The content of your enquiry, including the services or operational challenges you describe.","Limited technical data automatically collected by our website, such as IP address, browser type, and pages visited."]}]},{"h":"How we use information","body":["We use the information you provide to respond to your enquiry, scope and deliver services, and maintain our business relationship.",{"ul":["Responding to consultation requests and business enquiries.","Providing, operating, and supporting the services we agree to deliver.","Improving our website and understanding how it is used.","Meeting legal, regulatory, and contractual obligations."]}]},{"h":"Business enquiries and consultation requests","body":["When you submit the contact form or email us, we use your details solely to assess and respond to your request and to communicate about a potential or existing engagement. We do not sell your information or use it for unrelated marketing without your consent."]},{"h":"Cookies and analytics","body":["Our website uses a small number of cookies and similar technologies to function correctly and to understand aggregate usage. You can control cookies through your browser settings. See our <a href='Cookie-Policy.html'>Cookie Policy</a> for details."]},{"h":"Sharing information","body":["We treat your information as confidential. We may share it only where necessary:",{"ul":["With trusted service providers who support our operations under appropriate confidentiality and data-protection terms.","With technology partners where required to deliver a service you have requested.","Where required by law, regulation, or valid legal process."]}]},{"h":"Data security","body":["As an enterprise technology company, security is central to how we operate. We apply organisational and technical controls appropriate to the sensitivity of the information we hold, including access controls, encryption where appropriate, and monitoring."]},{"h":"International transfers","body":["We are based in Qatar and primarily process information here. Where information is transferred to or accessed from another country, for example through a technology provider, we take steps to ensure it remains protected to a comparable standard."]},{"h":"Data retention","body":["We retain personal information only for as long as needed to respond to your enquiry, fulfil our obligations, and meet legal or regulatory requirements. When it is no longer needed, we securely delete or anonymise it."]},{"h":"Your rights","body":["Subject to applicable law, you may request access to the personal information we hold about you, ask us to correct or delete it, or object to certain processing. To make a request, contact us using the details below."]},{"h":"Contact information","body":["For questions about this policy, contact ICT W.L.L at <a href='mailto:info@ict.com.qa'>info@ict.com.qa</a> or by post at Lusail Boulevard, West Bay, Doha, Qatar."]}]};
+</script>
+<script type="text/babel" src="components/Nav.jsx"></script>
+<script type="text/babel" src="components/Footer.jsx"></script>
+<script type="text/babel" src="components/LegalPage.jsx"></script>
+<script type="text/babel">
+  const { useEffect } = React;
+  function useScrollReveal() {
+    useEffect(() => {
+      const els = document.querySelectorAll(".reveal");
+      if (!("IntersectionObserver" in window)) { els.forEach((el) => el.classList.add("is-in")); return; }
+      const io = new IntersectionObserver((entries) => {
+        for (const e of entries) { if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); } }
+      }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
+      els.forEach((el) => io.observe(el));
+      return () => io.disconnect();
+    }, []);
+  }
+  function App() { useScrollReveal(); return (<><Nav /><main id="main-content" tabIndex="-1"><LegalPage data={window.LEGAL_DATA} /></main><Footer /></>); }
+  ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+<script src="components/cookie-consent.js"></script>
+</body>
+</html>
